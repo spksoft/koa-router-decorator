@@ -32,28 +32,12 @@ function getFiles(dir: string, files_?: string[]): string[] {
 async function formatResponse(descriptor: any, ctx: Context) {
   const ret = descriptor.value(ctx);
   if (ret != null) {
-    try {
-      const data = await Promise.resolve(ret);
-      if (data != null) {
-        // 正常格式
-        ctx.body = {
-          data: data,
-        };
-      }
-    } catch (err) {
-      if (err) {
-        const {code = 500, msg = String(err), data} = err;
-        // 错误格式
-        ctx.body = {
-          code,
-          msg,
-          data,
-        };
-        // 非线上环境记录错误
-        if (process.env.NODE_ENV != 'production') {
-          console.trace(err);
-        }
-      }
+    const data = await Promise.resolve(ret);
+    if (data != null) {
+      // 正常格式
+      ctx.body = {
+        data: data,
+      };
     }
   }
 }

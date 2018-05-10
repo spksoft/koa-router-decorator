@@ -1,6 +1,6 @@
 {
-  "name": "koa-decorator",
-  "description": "@route decorator for koa-router",
+  "name": "@spksoft/koa-decorator",
+  "description": "@route decorator for koa-router (fork from https://github.com/gwuhaolin/koa-router-decorator)",
   "keywords": [
     "koa",
     "router",
@@ -10,6 +10,9 @@
   "version": "1.2.1",
   "scripts": {
     "npm": "tsc"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "typings": "index",
   "dependencies": {
